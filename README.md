@@ -1,2 +1,2 @@
-# Cleanin_data_assignment
+# Cleaning_data_assignment
 Last assignment cleaning data course

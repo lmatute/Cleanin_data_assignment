@@ -29,5 +29,6 @@ To produce the output, the function needs to load different components of the da
 10) We convert this table to the dylpr format for easier handling ( we keep the same name)
 11) Next we make sure the table has proper labels on all columns
 12) The assignment calls for only reporting on variables of mean and std deviation. So we create a subset of those elements by searching for the words mean and std and identify the column names and column numbers to subset the combinedtable into a smaller data set. The variable  meanstdnames holds the names of the the desired columns and the variable  meanstdcol holds the column numbers.
+
 13) Next we create the smaller table based on point 12 and assure proper labeling of the columns
 14) Finally we group by subject and activity and calculate the means of all measurements and return the output.

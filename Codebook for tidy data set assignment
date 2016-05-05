@@ -1,24 +1,69 @@
-The orginal data for this prohect comes from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+The orginal data for this project comes from http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-The original data set is divided into inertial signals observations which include observations on indivuals that carried a smartphone device strapped on ther bodies. 
+The original data set refers to monitored movement of individuals that carried a smartphone device strapped on ther bodies. 
 These raw observations include body accelerometer (X-Y-Z) tests body gyroscope (X_Y_Z) tests and total accelaration (y-z). Raw observations 
 were divided into testing and training sets.
 
-Extensive calculations were done on these observations resulting in a total of 561 metrics.  a listing of these can be veiwed in table II.
-Some of the calculations refer to time domain signals ('t' in the variable name) and other in the frequency domain.
+Extensive calculations were done on these observations resulting in a total of 561 metrics.  A listing of these can be viewed in table II.
+Some of the calculations refer to time domain signals ('t' in the variable name) and other in the frequency domain ('f').
 
 In addition to the raw data and resulting features a factor listing is provided for the individuals who were subjet to measurement and also the type of activity
-they did. These datapoints where all put into a dataframe by combining the testing and training files on X,y variaariables ( observation and activity)
-and incporating the individual subject to the observation ( identified as s). These data points are available in the X_test,y_test,s_test and 
+they performed. These datapoints where all put into a dataframe by combining the testing and training files on X,y variables ( observation and activity)
+and incorporating the individual indentifier subject to the observation ( identified as s). These data points were available in the X_test,y_test,s_test and 
 X_train,y_train,s_train files.
 
-The assignment requests to focus on mean and std deviation type of variables. So a grep search was done to extract those varaibales resulting 
+The assignment requests to focus on mean and std deviation type of calculations as a subset of the larger dataset. So a grep search was done to extract those varaibales resulting 
 in table I.
 
 The last two fields Activity and Subject where added actvity_labels and subject files to enable grouping.
 
 Once the unified table was subset with the rediced set of mean|std variables a grouping was conducted by Subject and Activity and a mean calculation
 done for all variables.
+
+Once the run_analysis() functionos executed a new tidy dataset is produced that has the following summarized output. The grouping here is done
+by Subject and then activity and the mean of all variables of the subset follow.
+
+Finally table III show a more detailed explanation of how the program arrives at these results.
+
+
+
+Source: local data frame [180 x 81]
+Groups: Subject [?]
+
+   Subject           Activity tBodyAcc-mean()-X tBodyAcc-mean()-Y tBodyAcc-mean()-Z tBodyAcc-std()-X
+     (int)             (fctr)             (dbl)             (dbl)             (dbl)            (dbl)
+1        1            WALKING         0.2773308      -0.017383819        -0.1111481      -0.28374026
+2        1   WALKING_UPSTAIRS         0.2554617      -0.023953149        -0.0973020      -0.35470803
+3        1 WALKING_DOWNSTAIRS         0.2891883      -0.009918505        -0.1075662       0.03003534
+4        1            SITTING         0.2612376      -0.001308288        -0.1045442      -0.97722901
+5        1           STANDING         0.2789176      -0.016137590        -0.1106018      -0.99575990
+6        1             LAYING         0.2215982      -0.040513953        -0.1132036      -0.92805647
+7        2            WALKING         0.2764266      -0.018594920        -0.1055004      -0.42364284
+8        2   WALKING_UPSTAIRS         0.2471648      -0.021412113        -0.1525139      -0.30437641
+9        2 WALKING_DOWNSTAIRS         0.2776153      -0.022661416        -0.1168129       0.04636668
+10       2            SITTING         0.2770874      -0.015687994        -0.1092183      -0.98682228
+..     ...                ...               ...               ...               ...              ...
+Variables not shown: tBodyAcc-std()-Y (dbl), tBodyAcc-std()-Z (dbl), tGravityAcc-mean()-X (dbl),
+  tGravityAcc-mean()-Y (dbl), tGravityAcc-mean()-Z (dbl), tGravityAcc-std()-X (dbl), tGravityAcc-std()-Y (dbl),
+  tGravityAcc-std()-Z (dbl), tBodyAccJerk-mean()-X (dbl), tBodyAccJerk-mean()-Y (dbl), tBodyAccJerk-mean()-Z
+  (dbl), tBodyAccJerk-std()-X (dbl), tBodyAccJerk-std()-Y (dbl), tBodyAccJerk-std()-Z (dbl), tBodyGyro-mean()-X
+  (dbl), tBodyGyro-mean()-Y (dbl), tBodyGyro-mean()-Z (dbl), tBodyGyro-std()-X (dbl), tBodyGyro-std()-Y (dbl),
+  tBodyGyro-std()-Z (dbl), tBodyGyroJerk-mean()-X (dbl), tBodyGyroJerk-mean()-Y (dbl), tBodyGyroJerk-mean()-Z
+  (dbl), tBodyGyroJerk-std()-X (dbl), tBodyGyroJerk-std()-Y (dbl), tBodyGyroJerk-std()-Z (dbl), tBodyAccMag-mean()
+  (dbl), tBodyAccMag-std() (dbl), tGravityAccMag-mean() (dbl), tGravityAccMag-std() (dbl), tBodyAccJerkMag-mean()
+  (dbl), tBodyAccJerkMag-std() (dbl), tBodyGyroMag-mean() (dbl), tBodyGyroMag-std() (dbl), tBodyGyroJerkMag-mean()
+  (dbl), tBodyGyroJerkMag-std() (dbl), fBodyAcc-mean()-X (dbl), fBodyAcc-mean()-Y (dbl), fBodyAcc-mean()-Z (dbl),
+  fBodyAcc-std()-X (dbl), fBodyAcc-std()-Y (dbl), fBodyAcc-std()-Z (dbl), fBodyAcc-meanFreq()-X (dbl),
+  fBodyAcc-meanFreq()-Y (dbl), fBodyAcc-meanFreq()-Z (dbl), fBodyAccJerk-mean()-X (dbl), fBodyAccJerk-mean()-Y
+  (dbl), fBodyAccJerk-mean()-Z (dbl), fBodyAccJerk-std()-X (dbl), fBodyAccJerk-std()-Y (dbl), fBodyAccJerk-std()-Z
+  (dbl), fBodyAccJerk-meanFreq()-X (dbl), fBodyAccJerk-meanFreq()-Y (dbl), fBodyAccJerk-meanFreq()-Z (dbl),
+  fBodyGyro-mean()-X (dbl), fBodyGyro-mean()-Y (dbl), fBodyGyro-mean()-Z (dbl), fBodyGyro-std()-X (dbl),
+  fBodyGyro-std()-Y (dbl), fBodyGyro-std()-Z (dbl), fBodyGyro-meanFreq()-X (dbl), fBodyGyro-meanFreq()-Y (dbl),
+  fBodyGyro-meanFreq()-Z (dbl), fBodyAccMag-mean() (dbl), fBodyAccMag-std() (dbl), fBodyAccMag-meanFreq() (dbl),
+  fBodyBodyAccJerkMag-mean() (dbl), fBodyBodyAccJerkMag-std() (dbl), fBodyBodyAccJerkMag-meanFreq() (dbl),
+  fBodyBodyGyroMag-mean() (dbl), fBodyBodyGyroMag-std() (dbl), fBodyBodyGyroMag-meanFreq() (dbl),
+  fBodyBodyGyroJerkMag-mean() (dbl), fBodyBodyGyroJerkMag-std() (dbl), fBodyBodyGyroJerkMag-meanFreq() (dbl)
+
 
 # Table I
  [1] "tBodyAcc-mean()-X"               "tBodyAcc-mean()-Y"               "tBodyAcc-mean()-Z"              
